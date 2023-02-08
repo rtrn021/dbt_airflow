@@ -1,0 +1,30 @@
+CREATE TABLE raw_customers (
+	id serial PRIMARY KEY,
+	first_name VARCHAR ( 50 ) UNIQUE NOT NULL,
+	last_name VARCHAR ( 50 ) NOT NULL);
+	
+select * from raw_customers 
+
+CREATE TABLE raw_orders (
+	id serial PRIMARY KEY,
+	user_id VARCHAR ( 50 ) UNIQUE NOT NULL,
+	order_date DATE,
+	status VARCHAR ( 50 ));
+	
+select * from raw_orders 
+
+drop table if exists raw_payments;
+
+CREATE TABLE raw_payments (
+	id serial PRIMARY KEY,
+	order_id VARCHAR ( 50 ) UNIQUE NOT NULL,
+	payment_method VARCHAR ( 50 ),
+	amount INTEGER  );
+	
+select * from raw_payments 
+
+drop table if exists raw_payments;
+
+drop table if exists raw_orders;
+
+drop table if exists raw_customers;
